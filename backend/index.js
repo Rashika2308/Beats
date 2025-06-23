@@ -16,7 +16,7 @@ const localMusicDir = path.join(__dirname, 'music_gallery');
 
 // Enable CORS for React frontend
 app.use(cors({
-  origin: 'https://beats-three.vercel.app',
+  origin: 'https://beats-alpha.vercel.app',
 }));
 app.use(express.json());
 
@@ -65,7 +65,7 @@ function loadLocalSongs() {
         path: path.join(localMusicDir, file),
         plays: '0 plays',
         duration: '0:00',
-        url: `https://beats-three.vercel.app/api/local/${file}`
+        url: `https://beats-alpha.vercel.app/api/local/${file}`
       }));
   } catch (error) {
     console.error('Error loading local songs:', error);
@@ -222,7 +222,7 @@ app.post('/api/upload', upload.single('music'), (req, res) => {
       cover: faker.image.avatar(),
       plays: '0 plays',
       duration: '0:00',
-      url: `https://beats-three.vercel.app/api/stream/${req.file.filename}`
+      url: `https://beats-alpha.vercel.app/api/stream/${req.file.filename}`
     };
 
     musicLibrary.push(musicFile);
